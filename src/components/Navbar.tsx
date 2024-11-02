@@ -13,22 +13,26 @@ const Navbar = () => {
   return (
     <div
       className={
-        "z-50 shadow-sm flex items-center bg-white  h-[101px]  pl-[30px] py-[35px] "
+        "z-50 shadow-sm flex items-center bg-white  justify-between xl:justify-start  h-[101px] px-4   lg:pl-[30px] py-[35px] "
       }
     >
-      <div className=" relative w-[144px] h-[30px]">
+      <div className="hidden sm:block w-[144px] h-[30px] relative">
+        <Image src="/icon.svg" alt="logo" layout="fill" objectFit="contain" />
+      </div>
+      <div className="sm:hidden relative">
         <Image
-          src="/icon.svg"
-          objectFit="contain"
+          src="/logomobile.svg"
           alt="logo"
-          layout="fill"
-          className="w-10 h-10"
+          width={24}
+          objectFit="contain"
+          height={24}
         />
       </div>
       {/* Search bar   */}
+
       <form
         onSubmit={handleSearch}
-        className="flex  justify-between flex-row rounded-lg border border-opacity-20 order-[#213F7D] items-center ml-[162px] mr-[357px] w-[400px] h-[40px] "
+        className="  justify-between   flex-row rounded-lg border flex border-opacity-20 items-center xl:ml-[162px] xl:mr-[357px] w-[200px] md:w-[400px] h-[40px] "
       >
         <input
           type="text"
@@ -39,7 +43,7 @@ const Navbar = () => {
         />
         <button
           type="submit"
-          className="h-[40px] w-[56px] bg-[#39CDCC] flex items-center justify-center rounded-r-lg"
+          className="h-[40px] bg-[#40CDCC] flex px-2 md:px-4 items-center justify-center rounded-r-lg"
         >
           <div className="w-[14px] h-[14px] relative">
             <Image src="/search.svg" alt="search" layout="fill" />
@@ -50,7 +54,7 @@ const Navbar = () => {
       {/* Link to Docs  not an actual link because it doesnt go anywhere */}
       <p
         style={{ color: variables.primaryColor }}
-        className="cursor-pointer underline mr-[47px] j"
+        className="cursor-pointer underline hidden sm:block md:mr-[47px]"
       >
         Docs
       </p>
@@ -59,7 +63,7 @@ const Navbar = () => {
         width={26}
         src="/notification.png"
         alt="notification"
-        className="mr-[30px]"
+        className="  md:mr-[30px]"
       />
       <UserAccountNav />
     </div>

@@ -45,8 +45,8 @@ const UserAccountNav = () => {
         <Avatar>
           <AvatarImage className="h-[48px] w-[60px] " src={"/avatar.png"} />
         </Avatar>
-        <div className="flex items-center justify-center font-medium text-[#213F7D] ml-2 mr-1">
-          <span className="text-[22px] ">{user?.firstName}</span>{" "}
+        <div className="hidden md:flex items-center justify-center font-medium text-[#213F7D] ml-2 mr-1">
+          <span className="text-[22px]  ">{user?.firstName}</span>{" "}
           {/* Dropdown Svg */}
           <svg
             xmlns="http://www.w3.org/2000/svg"

@@ -102,7 +102,7 @@ const UserList: React.FC = () => {
           <button
             key={i}
             onClick={() => setOffset((i - 1) * limit)} // Set offset based on page number
-            className={`mx-1 px-3 py-1 rounded ${
+            className={`mx-[2px] sm:mx-1 px-1 sm:px-3 py-1 rounded ${
               (i - 1) * limit === offset
                 ? "text-[#545F7D]"
                 : "text-opacity-60 text-[#545F7D]"
@@ -137,7 +137,7 @@ const UserList: React.FC = () => {
         <div className="px-[30px] userbox text-[#545F7D]  pt-[20px] bg-white">
           {/* Table Header */}
           <div className="flex  text-[12px]  font-semibold">
-            <div className="flex-1 px-4 py-2 inline-flex items-center ">
+            <div className="flex-1  px-4 py-2 hidden lg:inline-flex items-center ">
               ORGANIZATION{" "}
               <FilterForm users={users} onFilter={setFilteredUsers} />
             </div>
@@ -145,15 +145,15 @@ const UserList: React.FC = () => {
               USERNAME
               <FilterForm users={users} onFilter={setFilteredUsers} />
             </div>
-            <div className="flex-1 px-4 py-2 inline-flex items-center">
+            <div className="flex-1 px-4 py-2 hidden xl:inline-flex items-center">
               EMAIL
               <FilterForm users={users} onFilter={setFilteredUsers} />
             </div>
-            <div className="flex-1 px-4 py-2 inline-flex items-center">
+            <div className="flex-1 px-4 py-2 xl:inline-flex hidden items-center">
               PHONE NUMBER
               <FilterForm users={users} onFilter={setFilteredUsers} />
             </div>
-            <div className="flex-1 px-4 py-2 inline-flex items-center">
+            <div className="flex-1 px-4 py-2  hidden lg:inline-flex items-center">
               DATE JOINED
               <FilterForm users={users} onFilter={setFilteredUsers} />
             </div>
@@ -169,11 +169,17 @@ const UserList: React.FC = () => {
               key={index}
               className="flex border-b border-b-[#213F7D1A] text-[14px] py-[21px]"
             >
-              <div className="flex-1 px-4  py-2">{user.organizationName}</div>
-              <div className="flex-1 ml-2  px-4  py-2">{user.username}</div>
-              <div className="flex-1  px-4 py-2">{user.email}</div>
-              <div className="flex-1 ml-2  px-4 py-2">{user.phone}</div>
-              <div className="flex-1  px-4 py-2">
+              <div className="flex-1 px-4 hidden lg:block py-2">
+                {user.organizationName}
+              </div>
+              <div className="flex-1 ml-2   px-4  py-2">{user.username}</div>
+              <div className="flex-1 hidden xl:block  px-4 py-2">
+                {user.email}
+              </div>
+              <div className="flex-1 ml-2 hidden xl:block  px-4 py-2">
+                {user.phone}
+              </div>
+              <div className="flex-1 hidden lg:block  px-4 py-2">
                 {convertDateFormat(user.dateJoined)}
               </div>
               <div className="flex-1  px-4 py-2">
@@ -245,7 +251,7 @@ const UserList: React.FC = () => {
         </div>
         {/*Pagination Component*/}
         <div className="flex justify-between items-center mt-4">
-          <div className="flex flex-row items-center text-[14px] text-[#545F7D]">
+          <div className="flex flex-col flex-wrap sm:flex-row items-center text-[12px] pl-[30px] gap-1 md:text-[14px] text-[#545F7D]">
             <p className="mr-2">Showing</p>
             <div className="relative">
               <select
@@ -280,7 +286,7 @@ const UserList: React.FC = () => {
             </div>
             <p className="ml-2">out of {filteredUsers.length}</p>
           </div>
-          <div className="flex flex-row gap-[20px]">
+          <div className="flex flex-row gap-2 sm:gap-[20px]">
             <button
               onClick={handlePrevPage}
               disabled={offset === 0}

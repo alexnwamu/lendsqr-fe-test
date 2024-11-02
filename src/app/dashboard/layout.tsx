@@ -18,11 +18,11 @@ export default function DashboardLayout({
         <div className="z-50 w-full fixed">
           <Navbar />
         </div>
-        <div className="flex relative">
+        <div className="flex w-full relative">
           <div className="fixed z-40 bg-white h-[150vh] overflow-y-auto left-0 top-[100px]">
             <Sidebar />
           </div>
-          <div className="mt-[100px] md:pl-[283px] z-0 relative w-full">
+          <div className="mt-[100px] lg:pl-[283px] pl-[25px] p-4 z-0 relative w-full">
             {children}
           </div>
         </div>

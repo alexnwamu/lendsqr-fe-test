@@ -38,19 +38,21 @@ export default function Dashboard() {
     fetchData();
   }, []);
   return (
-    <div className="bg-[#FBFBFB] p-[60px] relative z-0 min-h-screen">
-      <h1 className="text-[#213F7D] text-[24px]">Users</h1>
-      <div className="grid mt-[40px] grid-cols-4 gap-[24px]">
-        <div className=" bg-white  userbox pt-[20px] pl-[30px] pb-[30px]">
+    <div className="bg-[#FBFBFB] lg:p-[60px] p relative z-0 min-h-screen ">
+      <h1 className="text-[#213F7D] pl-[30px] lg:pl-0 text-[24px] ">Users</h1>
+      <div className="grid mt-[40px]  grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[10px] ms:gap-[24px]">
+        <div className=" bg-white  userbox pt-[20px] pl-[30px] w-[300px] sm:w-auto pb-[30px]">
           {" "}
           <Image src="/totalusers.svg" alt="logo" width={40} height={40} />
           <p className="text-[#545F7D] text-[14px] mt-[14px] mb-[12px] ">
             USERS
           </p>
-          <h1 className="text-[#213F7D] text-[24px] font-bold">{totalUsers}</h1>
+          <h1 className="text-[#213F7D] text-[24px] font-bold ">
+            {totalUsers}
+          </h1>
         </div>
 
-        <div className=" bg-white  userbox pt-[20px] pl-[30px] pb-[30px]">
+        <div className=" bg-white  userbox pt-[20px] pl-[30px] w-[300px] sm:w-auto pb-[30px]">
           {" "}
           <Image src="/activeusers.svg" alt="logo" width={40} height={40} />
           <p className="text-[#545F7D] text-[14px] mt-[14px] mb-[12px] ">
@@ -61,7 +63,7 @@ export default function Dashboard() {
             {users.filter((user) => user.status === "active").length}
           </h1>
         </div>
-        <div className=" bg-white  userbox pt-[20px] pl-[30px] pb-[30px]">
+        <div className=" bg-white  userbox pt-[20px] pl-[30px] w-[300px] sm:w-auto  pb-[30px ]">
           {" "}
           <Image src="/userswithloans.svg" alt="logo" width={40} height={40} />
           <p className="text-[#545F7D] mt-[14px] mb-[12px] text-[14px] ">
@@ -69,7 +71,7 @@ export default function Dashboard() {
           </p>
           <h1 className="text-[#213F7D] text-[24px] font-bold">12,453</h1>
         </div>
-        <div className=" bg-white  userbox pt-[20px] pl-[30px] pb-[30px]">
+        <div className=" bg-white  userbox pt-[20px] w-[300px] pl-[30px] sm:w-auto pb-[30px]">
           {" "}
           <Image
             src="/userswithsavings.svg"
