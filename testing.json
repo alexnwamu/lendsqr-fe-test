@@ -1,0 +1,36 @@
+{
+  "id": "12345",
+  "organizationName": "Example Organization",
+  "username": "johndoe",
+  "email": "grace@gmail.com",
+  "phone": "+1-234-567-8901",
+  "number": "1234567890",
+  "dateJoined": "2022-01-15",
+  "status": "active",
+  "userDetails": {
+    "fullName": "Grace Doe",
+    "phoneNumber": "+1-234-567-8901",
+    "emailAddress": "grace@gmail.com",
+    "bvn": "12345678901",
+    "gender": "female"
+  },
+  "educationAndEmployment": {
+    "levelOfEducation": "B.Sc",
+    "employmentStatus": "employed",
+    "sectorOfEmployment": "Technology",
+    "durationOfEmployment": "2 years",
+    "officeEmail": "grace@organization.com",
+    "monthlyIncome": "5000"
+  },
+  "socials": {
+    "twitter": "@gracedoe",
+    "facebook": "gracedoe",
+    "instagram": "gracedoe_insta"
+  },
+  "guarantor": {
+    "fullName": "John Smith",
+    "phoneNumber": "+1-987-654-3210",
+    "emailAddress": "john.smith@example.com",
+    "relationship": "friend"
+  }
+}

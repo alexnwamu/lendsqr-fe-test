@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import "./globals.css";
+import "react-toastify/dist/ReactToastify.css";
+import "./globals.scss";
+import { ToastContainer } from "react-toastify";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -11,6 +13,22 @@ const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
+});
+const avenirBold = localFont({
+  src: "./fonts/AvenirNextLTPro-Bold.otf",
+  variable: "--font-avenir-bold",
+  weight: "400 900",
+});
+const worksSans = localFont({
+  src: "./fonts/WorkSans-VariableFont_wght.ttf",
+  variable: "--work-sans",
+  weight: "100 900",
+});
+
+const avenir = localFont({
+  src: "./fonts/AvenirNextLTPro-Regular.otf",
+  variable: "--font-avenir",
+  weight: "400 900",
 });
 
 export const metadata: Metadata = {
@@ -26,8 +44,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={` ${worksSans.variable} ${geistSans.variable} ${geistMono.variable} ${avenirBold.variable} ${avenir.variable} `}
       >
+        <ToastContainer />
         {children}
       </body>
     </html>
