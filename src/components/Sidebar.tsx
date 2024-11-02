@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import SidebarLinks from "./SidebarLinks";
 import { toast } from "react-toastify";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { PanelRightOpen } from "lucide-react";
 const Sidebar = () => {
@@ -16,7 +17,21 @@ const Sidebar = () => {
   };
 
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(false);
 
+  useEffect(() => {
+    // Set the initial screen size when the component mounts
+    if (typeof window !== "undefined") {
+      setIsLargeScreen(window.innerWidth >= 1024);
+
+      // Add an event listener to update the width on window resize
+      const handleResize = () => setIsLargeScreen(window.innerWidth >= 1024);
+      window.addEventListener("resize", handleResize);
+
+      // Cleanup event listener on component unmount
+      return () => window.removeEventListener("resize", handleResize);
+    }
+  }, []);
   const toggleSidebar = () => {
     setIsSidebarOpen((prev) => !prev);
   };
@@ -28,7 +43,7 @@ const Sidebar = () => {
         <PanelRightOpen className="text-[#213F7D]" />
       </button>
       <div
-        className={`block ${isSidebarOpen || window.innerWidth >= 1024 ? "block" : "hidden"}`}
+        className={`block ${isSidebarOpen || isLargeScreen ? "block" : "hidden"}`}
       >
         <div className="flex ml-[30px] mb-[52px] gap-[10px] items-center text-[#213F7D]">
           <Image src="/organization.svg" alt="logo" width={16} height={16} />
