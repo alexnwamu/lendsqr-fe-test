@@ -23,9 +23,19 @@ const UserList: React.FC = () => {
   const [filteredUsers, setFilteredUsers] = useState<User[]>([]);
 
   const convertDateFormat = (dateString: string): string => {
+    // Check if the date string is valid and parse it
     const dateObject = new Date(dateString);
+
+    // If date is invalid, return a fallback value
+    if (isNaN(dateObject.getTime())) {
+      console.warn("Invalid date:", dateString);
+      return "Invalid Date"; // or any placeholder text
+    }
+
+    // Format date if valid
     return format(dateObject, "MMMM dd, yyyy hh:mm a");
   };
+
   useEffect(() => {
     const fetchUsers = async () => {
       try {
