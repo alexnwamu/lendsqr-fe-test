@@ -1,36 +1,100 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Frontend Assessment - Lendsqr Dashboard
+
+## Overview
+
+This project is a dashboard application developed as part of a frontend assessment for Lendsqr. It showcases a modern user interface built using Next.js with TypeScript for type safety, SCSS for preprocessing styles, and Tailwind CSS for utility-first styling. The application is designed according to specifications provided in the Figma design file.
+
+## Features
+
+- **Responsive Dashboard**: A clean, user-friendly interface that adapts to various screen sizes.
+- **TypeScript Support**: Enhances code quality and maintainability through static typing.
+- **Styled with Tailwind CSS**: Utilizes Tailwind CSS for rapid styling and responsiveness.
+- **SCSS Preprocessing**: Allows for modular and organized styling with SCSS.
+- **Mock API Integration**: Uses [mocky.io](http://mocky.io) for hosting a mock API, facilitating smooth development and testing.
+- **Testing with Jest and React Testing Library**: Comprehensive unit and integration tests to ensure functionality and reliability.
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+Make sure you have the following installed:
+
+- Node.js (>= 14.x)
+- npm or Yarn
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone <repository-url>
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd <project-name>
+   ```
+
+3. Install the dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+### Running the Development Server
+
+To start the development server, run:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application should be accessible at [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Building for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+To create a production build, run:
 
-## Learn More
+```bash
+npm run build
+# or
+yarn build
+```
 
-To learn more about Next.js, take a look at the following resources:
+After building, you can start the production server with:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm start
+# or
+yarn start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Testing
 
-## Deploy on Vercel
+This project includes tests using Jest and React Testing Library. To run the tests, use the following command:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+npm test
+# or
+yarn test
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## API Mocking
+
+The application uses [mocky.io](http://mocky.io) to simulate API responses during development. Ensure that the mock endpoints are correctly set up in your code for seamless integration.
+
+## Acknowledgements
+
+- [Next.js](https://nextjs.org)
+- [TypeScript](https://www.typescriptlang.org)
+- [Tailwind CSS](https://tailwindcss.com)
+- [SCSS](https://sass-lang.com)
+- [React Testing Library](https://testing-library.com/docs/react-testing-library/intro)
+- [Jest](https://jestjs.io)
+
+Feel free to reach out with any questions or feedback!
