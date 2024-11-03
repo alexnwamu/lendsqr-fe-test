@@ -13,7 +13,6 @@ export default function DashboardLayout({
   return (
     <SearchProvider>
       {" "}
-      {/* Wrap with SearchProvider */}
       <div className="font-work-sans">
         <div className="z-50 w-full fixed">
           <Navbar />

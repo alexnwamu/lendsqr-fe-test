@@ -23,16 +23,12 @@ const UserList: React.FC = () => {
   const [filteredUsers, setFilteredUsers] = useState<User[]>([]);
 
   const convertDateFormat = (dateString: string): string => {
-    // Check if the date string is valid and parse it
     const dateObject = new Date(dateString);
 
-    // If date is invalid, return a fallback value
     if (isNaN(dateObject.getTime())) {
       console.warn("Invalid date:", dateString);
-      return "Invalid Date"; // or any placeholder text
+      return "Invalid Date";
     }
-
-    // Format date if valid
     return format(dateObject, "MMMM dd, yyyy hh:mm a");
   };
 
@@ -42,7 +38,7 @@ const UserList: React.FC = () => {
         const response = await axios.get(
           "https://run.mocky.io/v3/466fff54-53ae-477a-abdb-519511aea358",
         );
-        setUsers(response.data); // Set users from API response
+        setUsers(response.data);
       } catch (err) {
         console.log(err);
         setError("Error fetching data");
@@ -53,23 +49,22 @@ const UserList: React.FC = () => {
 
     fetchUsers();
   }, []);
-  //Function for handling search
 
   useEffect(() => {
     if (searchTerm) {
       const lowerCaseTerm = searchTerm.toLowerCase();
       const results = users.filter((user) => {
         return (
-          user.organizationName.toLowerCase().includes(lowerCaseTerm) || // Partial match
-          user.organizationName.toLowerCase() === lowerCaseTerm || // Exact match
-          user.username.toLowerCase().includes(lowerCaseTerm) || // Partial match
-          user.email.toLowerCase().includes(lowerCaseTerm) || // Partial match
-          user.phone.includes(lowerCaseTerm) || // Partial match
-          user.status.toLowerCase().includes(lowerCaseTerm) || // Partial match
-          user.username.toLowerCase() === lowerCaseTerm || // Exact match
-          user.email.toLowerCase() === lowerCaseTerm || // Exact match
-          user.phone === lowerCaseTerm || // Exact match
-          user.status.toLowerCase() === lowerCaseTerm // Exact match
+          user.organizationName.toLowerCase().includes(lowerCaseTerm) ||
+          user.organizationName.toLowerCase() === lowerCaseTerm ||
+          user.username.toLowerCase().includes(lowerCaseTerm) ||
+          user.email.toLowerCase().includes(lowerCaseTerm) ||
+          user.phone.includes(lowerCaseTerm) ||
+          user.status.toLowerCase().includes(lowerCaseTerm) ||
+          user.username.toLowerCase() === lowerCaseTerm ||
+          user.email.toLowerCase() === lowerCaseTerm ||
+          user.phone === lowerCaseTerm ||
+          user.status.toLowerCase() === lowerCaseTerm
         );
       });
       setFilteredUsers(results);
@@ -277,7 +272,6 @@ const UserList: React.FC = () => {
                 ))}
               </select>
               <div className="absolute right-3 top-1/2 transform   -translate-y-1/2 pointer-events-none">
-                {/* Custom dropdown icon, e.g., an arrow icon */}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="14"
@@ -305,7 +299,7 @@ const UserList: React.FC = () => {
               <ChevronLeft className="w-[24px] h-[24px]" />
             </button>
 
-            {/* Page Numbers */}
+            {/* Page Link Numbers */}
             <div className="flex items-center">{renderPageNumbers()}</div>
 
             <button

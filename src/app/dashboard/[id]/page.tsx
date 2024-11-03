@@ -4,22 +4,21 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "next/navigation";
-import { User } from "@/app/types/User"; // Import the User type
+import { User } from "@/app/types/User";
 import Link from "next/link";
 import Image from "next/image";
 
 const UserDetailsPage: React.FC = () => {
-  const { id } = useParams(); // Get the id as a string
+  const { id } = useParams();
   const [users, setUsers] = useState<User[]>([]);
   const [user, setUser] = useState<User | null>(null);
   const [error, setError] = useState<string | null>(null);
-  // Fetch all users when the component mounts
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get(
           "https://run.mocky.io/v3/466fff54-53ae-477a-abdb-519511aea358",
-        ); // Replace with your mock API URL
+        );
         setUsers(response.data);
       } catch (error) {
         console.log(error);
@@ -30,7 +29,6 @@ const UserDetailsPage: React.FC = () => {
     fetchUsers();
   }, []);
 
-  // Find user with the matching ID after fetching users
   useEffect(() => {
     if (users.length > 0 && id) {
       const foundUser = users.find((user) => user.id === id); // Compare id as a string
@@ -82,7 +80,6 @@ const UserDetailsPage: React.FC = () => {
             </div>
           </div>
 
-          {/* User Tier */}
           <div className="flex flex-col items-center md:items-start border-b md:border-b-0 md:border-r border-[#545F7D] border-opacity-20 pb-5 md:pb-0 md:pr-5">
             <h1 className="text-sm mb-2.5 text-[#545F7D] font-medium">
               User's Tier
@@ -90,7 +87,6 @@ const UserDetailsPage: React.FC = () => {
             <Image src="/stars.svg" alt="Stars" width={56} height={16} />
           </div>
 
-          {/* Account Balance */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <h1 className="font-medium text-[22px] text-[#213F7D] capitalize">
               ₦200,000.00
@@ -233,7 +229,7 @@ const UserDetailsPage: React.FC = () => {
             <div className="flex flex-col">
               <span className="text-[12px]">LOAN REPAYMENT</span>
               <span className="font-medium">
-                {user.educationAndEmployment.loanRepayment}
+                {user.educationAndEmployment.monthlyIncome}
               </span>
             </div>
           </div>

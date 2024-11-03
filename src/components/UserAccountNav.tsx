@@ -12,7 +12,6 @@ import {
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 const UserAccountNav = () => {
-  //Create user state
   const [user, setUser] = useState<{
     firstName: string;
     lastName: string;

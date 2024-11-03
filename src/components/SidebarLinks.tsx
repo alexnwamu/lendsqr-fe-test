@@ -17,11 +17,11 @@ const SidebarLinks: React.FC = () => {
 
   const renderLinks = (links: LinkData[]) => {
     return links.map((link, index) => {
-      const isActive = pathname === link.url; // Check if the current path matches the link's URL
+      const isActive = pathname === link.url;
       const bgColor = isActive
         ? "bg-[#39CDCC] bg-opacity-[0.06]"
-        : "bg-transparent"; // Active background with opacity
-      const borderColor = isActive ? "border-[#39CDCC]" : "border-transparent"; // Border color
+        : "bg-transparent";
+      const borderColor = isActive ? "border-[#39CDCC]" : "border-transparent";
 
       return (
         <Link
