@@ -51,9 +51,9 @@ const UserDetailsPage: React.FC = () => {
         <Image src="/back.svg" alt="Back" width={30} height={30} />
         <span className="text-[#545F7D]">Back to Users</span>
       </Link>
-      <div className="flex justify-between mb-10 items-center">
+      <div className="flex md:flex-row flex-col md:justify-between  gap-2 md:gap-0 mb-10 items-center">
         <h1 className="text-2xl font-bold text-[#213F7D]">User Details</h1>
-        <div className="flex gap-5">
+        <div className="flex md:flex-row flex-col gap-5">
           <button className="w-[170px] text-sm text-[#E4033B] border-[#E4033B] border h-[40px] rounded-md">
             {" "}
             BLACKLIST USER
@@ -64,26 +64,34 @@ const UserDetailsPage: React.FC = () => {
         </div>
       </div>
       <div className="bg-white userbox pt-[30px] px-[30px] w-full">
-        <div className=" flex flex-row">
-          <Image
-            src="/userdetailsicon.svg"
-            alt="User"
-            width={100}
-            height={100}
-          />
-          <div className="ml-5 border-r border-[#545F7D] border-opacity-20 pt-[25px] pr-[30px] ">
-            <h1 className="font-medium text-[22px] text-[#213F7D] capitalize">
-              {user.userDetails.fullName}
-            </h1>
-            <p className="text-[#545F7D] text-sm">LSQFf587g{user.id}</p>
+        <div className="flex flex-col md:flex-row bg-white p-5 space-y-5 md:space-y-0 md:space-x-5">
+          {/* User Icon and Name */}
+          <div className="flex flex-col items-center md:flex-row md:items-start border-b md:border-b-0 md:border-r border-[#545F7D] border-opacity-20 pb-5 md:pb-0 md:pr-5">
+            <Image
+              src="/userdetailsicon.svg"
+              alt="User"
+              width={100}
+              height={100}
+              className="mb-3 md:mb-0"
+            />
+            <div className="text-center md:text-left md:ml-5">
+              <h1 className="font-medium text-[22px] text-[#213F7D] capitalize">
+                {user.userDetails.fullName}
+              </h1>
+              <p className="text-[#545F7D] text-sm">LSQFf587g{user.id}</p>
+            </div>
           </div>
-          <div className="ml-[30px] pt-[29px] border-r border-[#545F7D] border-opacity-20 pr-[30px] ">
+
+          {/* User Tier */}
+          <div className="flex flex-col items-center md:items-start border-b md:border-b-0 md:border-r border-[#545F7D] border-opacity-20 pb-5 md:pb-0 md:pr-5">
             <h1 className="text-sm mb-2.5 text-[#545F7D] font-medium">
               User's Tier
             </h1>
             <Image src="/stars.svg" alt="Stars" width={56} height={16} />
           </div>
-          <div className="ml-[30px] pt-[25px] pr-[30px] ">
+
+          {/* Account Balance */}
+          <div className="flex flex-col items-center md:items-start text-center md:text-left">
             <h1 className="font-medium text-[22px] text-[#213F7D] capitalize">
               ₦200,000.00
             </h1>
@@ -93,7 +101,7 @@ const UserDetailsPage: React.FC = () => {
           </div>
         </div>
 
-        <div className="flex gap-[80px] pt-[51px]">
+        <div className=" gap-[80px] hidden xl:flex pt-[51px]">
           <div className="text-[#39CDCC] pb-[10px] border-b-2 border-[#39CDCC] w-[170px] text-center">
             General Details
           </div>
@@ -104,9 +112,182 @@ const UserDetailsPage: React.FC = () => {
           <div>Savings</div>
           <div>App and System</div>
         </div>
-      </div>
+        {/* Mobile Version */}
+        <div className="flex flex-wrap xl:hidden justify-center xl:justify-start gap-3 sm:gap-5 xl:gap-[80px] pt-[20px] xl:pt-[51px] xl:w-[170px]">
+          <div className="text-[#39CDCC] pb-[10px] xl:text-left border-b-2 border-[#39CDCC] w-[90px] sm:w-[120px] xl:w-auto text-center text-xs sm:text-sm xl:text-base">
+            General Details
+          </div>
 
-      <div className="bg-white userbox pb-[46px] pt-[30px] px-[30px] mt-[30px] w-full">
+          <div className="text-center xl:text-left w-[90px] sm:w-[120px] xl:w-[170px] text-xs sm:text-sm xl:text-base">
+            Documents
+          </div>
+          <div className="text-center xl:text-left w-[90px] sm:w-[120px] xl:w-[170px] text-xs sm:text-sm xl:text-base">
+            Bank Details
+          </div>
+          <div className="text-center w-[90px] xl:text-left sm:w-[120px] xl:w-[170px] text-xs sm:text-sm xl:text-base">
+            Loans
+          </div>
+          <div className="text-center w-[90px] sm:w-[120px] xl:text-left xl:w-[170px] text-xs sm:text-sm xl:text-base">
+            Savings
+          </div>
+          <div className="text-center w-[90px] sm:w-[120px] xl:w-[170px] xl:text-left text-xs sm:text-sm xl:text-base">
+            App and System
+          </div>
+        </div>
+      </div>
+      {/* Mobile Version */}
+      <div className="bg-white xl:hidden userbox pb-[46px] pt-[30px] px-[30px] mt-[30px] w-full">
+        <h1 className="text-[#213F7D] mb-[30px] text-[16px] font-medium">
+          Personal Information
+        </h1>
+        <div className="w-full text-[#545F7D] space-y-4">
+          <div className="grid gap-y-4 md:grid-cols-5">
+            <div className="flex flex-col">
+              <span className="text-[12px]">FULL NAME</span>
+              <span className="font-medium">{user.userDetails.fullName}</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[12px]">PHONE NUMBER</span>
+              <span className="font-medium">
+                {user.userDetails.phoneNumber}
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[12px]">EMAIL ADDRESS</span>
+              <span className="font-medium">
+                {user.userDetails.emailAddress}
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[12px]">BVN</span>
+              <span className="font-medium">{user.userDetails.bvn}</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[12px]">GENDER</span>
+              <span className="font-medium">{user.userDetails.gender}</span>
+            </div>
+          </div>
+
+          <div className="grid gap-y-4 md:grid-cols-3 pt-[30px]">
+            <div className="flex flex-col">
+              <span className="text-[12px]">MARITAL STATUS</span>
+              <span className="font-medium">Single</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[12px]">CHILDREN</span>
+              <span className="font-medium">None</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[12px]">TYPE OF RESIDENCE</span>
+              <span className="font-medium">Parents house</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-[30px] bg-[#213F7D] bg-opacity-10 h-[1px] w-full" />
+
+        <h1 className="text-[#213F7D] mb-[30px] mt-[30px] text-[16px] font-medium">
+          Education and Employment
+        </h1>
+        <div className="w-full text-[#545F7D] space-y-4">
+          <div className="grid gap-y-4 md:grid-cols-4">
+            <div className="flex flex-col">
+              <span className="text-[12px]">LEVEL OF EDUCATION</span>
+              <span className="font-medium">
+                {user.educationAndEmployment.levelOfEducation}
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[12px]">EMPLOYMENT STATUS</span>
+              <span className="font-medium">
+                {user.educationAndEmployment.employmentStatus}
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[12px]">SECTOR OF EMPLOYMENT</span>
+              <span className="font-medium">
+                {user.educationAndEmployment.sectorOfEmployment}
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[12px]">DURATION OF EMPLOYMENT</span>
+              <span className="font-medium">
+                {user.educationAndEmployment.durationOfEmployment}
+              </span>
+            </div>
+          </div>
+
+          <div className="grid gap-y-4 md:grid-cols-3 pt-[30px]">
+            <div className="flex flex-col">
+              <span className="text-[12px]">OFFICE EMAIL</span>
+              <span className="font-medium">
+                {user.educationAndEmployment.officeEmail}
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[12px]">MONTHLY INCOME</span>
+              <span className="font-medium">
+                {user.educationAndEmployment.monthlyIncome}
+              </span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[12px]">LOAN REPAYMENT</span>
+              <span className="font-medium">
+                {user.educationAndEmployment.loanRepayment}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-[30px] bg-[#213F7D] bg-opacity-10 h-[1px] w-full" />
+
+        <h1 className="text-[#213F7D] mb-[30px] mt-[30px] text-[16px] font-medium">
+          Socials
+        </h1>
+        <div className="w-full text-[#545F7D] space-y-4">
+          <div className="grid gap-y-4 md:grid-cols-3">
+            <div className="flex flex-col">
+              <span className="text-[12px]">TWITTER</span>
+              <span className="font-medium">{user.socials.twitter}</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[12px]">FACEBOOK</span>
+              <span className="font-medium">{user.socials.facebook}</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[12px]">INSTAGRAM</span>
+              <span className="font-medium">{user.socials.instagram}</span>
+            </div>
+          </div>
+        </div>
+
+        <div className="mt-[30px] bg-[#213F7D] bg-opacity-10 h-[1px] w-full" />
+
+        <h1 className="text-[#213F7D] mb-[30px] mt-[30px] text-[16px] font-medium">
+          Guarantor
+        </h1>
+        <div className="w-full text-[#545F7D] space-y-4">
+          <div className="grid gap-y-4 md:grid-cols-4">
+            <div className="flex flex-col">
+              <span className="text-[12px]">FULL NAME</span>
+              <span className="font-medium">{user.guarantor.fullName}</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[12px]">PHONE NUMBER</span>
+              <span className="font-medium">{user.guarantor.phoneNumber}</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[12px]">EMAIL ADDRESS</span>
+              <span className="font-medium">{user.guarantor.emailAddress}</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-[12px]">RELATIONSHIP</span>
+              <span className="font-medium">{user.guarantor.relationship}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="bg-white userbox xl:block hidden pb-[46px] pt-[30px] px-[30px] mt-[30px] w-full">
         <h1 className="text-[#213F7D] mb-[30px] text-[16x] font-medium">
           Personal Information
         </h1>
